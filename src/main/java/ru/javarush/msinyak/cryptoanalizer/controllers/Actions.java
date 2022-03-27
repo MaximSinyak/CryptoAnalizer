@@ -6,8 +6,8 @@ import ru.javarush.msinyak.cryptoanalizer.commands.Encoder;
 import ru.javarush.msinyak.cryptoanalizer.exceptions.AppExeption;
 
 public enum Actions {
-    ENCODE(new Encoder()),
-    DECODE(new Decoder());
+    ENCODE (new Encoder()),
+    DECODE (new Decoder());
 
     private final Action action;
 
@@ -17,7 +17,7 @@ public enum Actions {
 
     public static Action find(String actionName){
         try {
-            Actions value = Actions.valueOf(actionName.toLowerCase());
+            Actions value = Actions.valueOf(actionName.toUpperCase());
             return value.action;
         } catch (IllegalArgumentException e){
             throw new AppExeption("not found " + actionName, e);
